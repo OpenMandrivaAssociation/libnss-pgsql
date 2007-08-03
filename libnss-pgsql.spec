@@ -30,6 +30,7 @@ All without recompiling or touching any application
 configurations. Just compile and install nss_postgresql 
 library and set up a PostgreSQL server.
 
+%if %_lib != lib
 %package -n %{_lib}nss-pgsql
 Summary: NSS library for postgresql
 Group: System/Libraries
@@ -46,6 +47,7 @@ offered by the libc (2.x) as nis and nisplus already did.
 All without recompiling or touching any application 
 configurations. Just compile and install nss_postgresql 
 library and set up a PostgreSQL server.
+%endif
 
 %prep
 %setup -q
@@ -72,7 +74,11 @@ rm -fr %buildroot/%_prefix/doc
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%if %_lib != lib
 %files -n %{_lib}nss-pgsql
+%else
+%files
+%endif
 %defattr(-,root,root)
 %doc conf/dbschema.sql README* TODO AUTHORS 
 %doc doc/caution.png doc/nss-pgsql.html
