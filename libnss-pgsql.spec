@@ -1,6 +1,6 @@
 %define name libnss-pgsql
 %define version 1.4.0
-%define release %mkrel 4
+%define release %mkrel 5
 
 Summary: NSS library for postgresql
 Name: %{name}
@@ -18,6 +18,23 @@ BuildRequires: xmlto
 BuildRequires: automake1.4
 
 %description
+This library provide the capability to have all classical 
+users definitions in a PostgreSQL server instead than in the
+old plain text files in /etc passwd,group,shadow.
+
+All is done without any trick or something like, simply 
+connecting to the nss (name servica switch) facility 
+offered by the libc (2.x) as nis and nisplus already did.
+
+All without recompiling or touching any application 
+configurations. Just compile and install nss_postgresql 
+library and set up a PostgreSQL server.
+
+%package -n %{_lib}nss-pgsql
+Summary: NSS library for postgresql
+Group: System/Libraries
+
+%description -n %{_lib}nss-pgsql
 This library provide the capability to have all classical 
 users definitions in a PostgreSQL server instead than in the
 old plain text files in /etc passwd,group,shadow.
@@ -55,7 +72,7 @@ rm -fr %buildroot/%_prefix/doc
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -n %{_lib}nss-pgsql
 %defattr(-,root,root)
 %doc conf/dbschema.sql README* TODO AUTHORS 
 %doc doc/caution.png doc/nss-pgsql.html
