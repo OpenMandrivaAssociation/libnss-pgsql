@@ -14,6 +14,7 @@ Group: System/Libraries
 Url: http://sourceforge.net/projects/sysauth-pgsql
 BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libpq-devel
+BuildRequires: postgresql-devel
 BuildRequires: xmlto
 BuildRequires: automake1.4
 
