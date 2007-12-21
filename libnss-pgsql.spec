@@ -12,6 +12,7 @@ Patch1: libnss-pgsql.readconfigsilentfailed.patch
 License: GPL
 Group: System/Libraries
 Url: http://sourceforge.net/projects/sysauth-pgsql
+BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libpq-devel
 BuildRequires: postgresql-devel
 BuildRequires: xmlto
