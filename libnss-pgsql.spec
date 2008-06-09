@@ -69,8 +69,12 @@ install -m600 conf/nss-pgsql-root.conf %buildroot/%_sysconfdir/nss-pgsql-root.co
 
 rm -fr %buildroot/%_prefix/doc
 
+%if %mdkversion < 200900
 %post -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -p /sbin/ldconfig
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
