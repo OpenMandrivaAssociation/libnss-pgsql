@@ -1,6 +1,6 @@
 %define name libnss-pgsql
 %define version 1.4.0
-%define release %mkrel 7
+%define release %mkrel 8
 
 Summary: NSS library for postgresql
 Name: %{name}
