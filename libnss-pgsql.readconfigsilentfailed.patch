@@ -1,0 +1,13 @@
+--- ./src/backend.c.pgsqlinclude	2006-01-09 23:33:07.000000000 +0100
++++ ./src/backend.c	2006-02-04 22:37:09.133923606 +0100
+@@ -73,7 +73,9 @@
+ 					PQfinish(_shadowconn);
+ 				}
+ 				_shadowconn = PQconnectdb(getcfg("shadowconnectionstring"));
+-			}
++			} else {
++                return(0);
++            }
+ 
+ 			if(PQstatus(_shadowconn) == CONNECTION_OK) {
+ 				++_shadowisopen;
