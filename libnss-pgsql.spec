@@ -13,6 +13,9 @@ License: GPL
 Group: System/Libraries
 Url: https://sourceforge.net/projects/sysauth-pgsql
 BuildRoot: %{_tmppath}/%{name}-buildroot
+BuildRequires:	autoconf
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires: libpq-devel
 BuildRequires: postgresql-devel
 BuildRequires: xmlto
